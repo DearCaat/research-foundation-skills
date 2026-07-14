@@ -12,7 +12,9 @@
 任何讨论都按此序推进：背景不清时先 grounding 主动查证，再 brainstorming 发散，再 grilling 一次一问收敛；共识落为计划（含 Out of Scope）后，才进入 executing-plans。执行期严格照计划做，越界即停。
 
 ## 4. Sub-agent 调度哲学
-派发任何 sub-agent 前，按任务性质选成本档：机械、批量、低判断的任务交 haiku；固定 plan 执行、格式转换、模板化编辑交 sonnet、低 effort；review、方案设计、高强度思考交高 effort（inherit 或 opus）。用户已给定 sub-agent 需求和 prompt 时，逐字执行，不增删要求。检索类 legwork 宜后台运行。
+派发任何 sub-agent 前，按任务性质选成本档：机械、批量、低判断的任务交 haiku 级别模型；固定 plan 执行、格式转换、模板化编辑交 sonnet 级别模型、中 effort；review、方案设计、高强度思考交 opus 级别模型、高 effort。用户已给定 sub-agent 需求和 prompt 时，逐字执行，不增删要求。检索类 legwork 宜后台运行。
+相互独立的子任务须在同一响应内并行派发多个 dispatch；每个 sub-agent 的 prompt 必须自足，不依赖本会话历史。
+返回后由主 agent 独立核实各结果及其相互关系，确认无冲突再采用。
 
 ## 5. 完成纪律
 只有拿到新鲜的验证证据才声明完成；报告实际状态，不报告期望状态。
