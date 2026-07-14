@@ -60,7 +60,14 @@ claude plugin update research-foundation@twh
 
 ### Codex
 
-每个 skill 附带 `agents/openai.yaml`（含 user-invoked 的 `policy.allow_implicit_invocation: false`），清单在 `.codex-plugin/plugin.json`；常驻原则由根目录 [AGENTS.md](AGENTS.md) 引导加载。
+```bash
+codex plugin marketplace add /mnt/d/twh/research-foundation
+codex plugin add research-foundation@twh
+```
+
+清单在 `.codex-plugin/plugin.json`（`skills` 为单路径字符串，指向 `./skills/`，Codex 递归发现 `SKILL.md`）；本地 marketplace 定义在 `.agents/plugins/marketplace.json`。常驻原则复用同一份 `hooks/hooks.json`——Codex 的 hooks 与 Claude Code 同 schema，且兼容 `CLAUDE_PLUGIN_ROOT` 变量；首次会话 Codex 会要求信任该 hook（unmanaged hook 审查机制），确认后 SessionStart 即注入 foundation。每个 skill 的 Codex 元数据在各自 `agents/openai.yaml`。
+
+更新：bump `.codex-plugin/plugin.json` 的 `version` 后重新 `codex plugin add research-foundation@twh` 刷新快照。
 
 ## 修改本插件
 
