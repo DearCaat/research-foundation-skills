@@ -1,9 +1,9 @@
 {
   "name": "research-foundation",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Research foundation plugin: philosophy-level process skills (grounding / brainstorming / grilling / executing-plans / handoff / writing-skills) plus a one-page standing principles doc.",
   "author": {
-    "name": "tangwenhao"
+    "name": "dearcat"
   },
   "homepage": "https://github.com/DearCaat/research-foundation-skills",
   "repository": "https://github.com/DearCaat/research-foundation-skills",
@@ -22,7 +22,7 @@
     "displayName": "Research Foundation",
     "shortDescription": "Philosophy-level process skills for research work",
     "longDescription": "Grounding before opinions, brainstorming before grilling, strict plan execution, session handoff, and skill-authoring discipline — principles, not engineering SOPs.",
-    "developerName": "tangwenhao",
+    "developerName": "dearcat",
     "category": "Productivity",
     "capabilities": [
       "Interactive",

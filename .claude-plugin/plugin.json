@@ -3,7 +3,7 @@
   "version": "0.1.2",
   "description": "科研基建插件：哲学级过程 skill（grounding / brainstorming / grilling / executing-plans / handoff / writing-skills）+ 常驻原则页（skill 元规则、讨论/执行分离、sub-agent 成本分层调度、完成纪律、输出精简）。吸纳 mattpocock/skills 与 superpowers 的哲学，不搬工程 SOP。",
   "author": {
-    "name": "tangwenhao"
+    "name": "dearcat"
   },
   "license": "MIT",
   "keywords": [

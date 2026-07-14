@@ -40,18 +40,18 @@
 
 ## 安装（Codex）
 
-本仓库本身就是一个 Codex marketplace：`.agents/plugins/marketplace.json` 中的 `twh` 市场暴露 `research-foundation` 插件。发布到 GitHub 后，任何用户可直接从仓库添加市场：
+本仓库本身就是一个 Codex marketplace：`.agents/plugins/marketplace.json` 中的 `dearcat` 市场暴露 `research-foundation` 插件。发布到 GitHub 后，任何用户可直接从仓库添加市场：
 
 ```bash
 codex plugin marketplace add DearCaat/research-foundation-skills --ref main
-codex plugin add research-foundation@twh
+codex plugin add research-foundation@dearcat
 ```
 
 也可以使用完整仓库 URL：
 
 ```bash
 codex plugin marketplace add https://github.com/DearCaat/research-foundation-skills.git --ref main
-codex plugin add research-foundation@twh
+codex plugin add research-foundation@dearcat
 ```
 
 安装后请开一个新的 Codex session。插件包含 `SessionStart` hook；Codex 会在首次启用或 hook 更新后要求审查并信任该 command hook。该 hook 仅输出插件中的 `principles/foundation.md`，使用 Codex 提供的 `PLUGIN_ROOT` 环境变量定位已安装插件目录。
@@ -61,8 +61,8 @@ codex plugin add research-foundation@twh
 发布新版本时，更新 `.codex-plugin/plugin.json` 的语义化 `version` 并推送到 `main`。已安装用户执行：
 
 ```bash
-codex plugin marketplace upgrade twh
-codex plugin add research-foundation@twh
+codex plugin marketplace upgrade dearcat
+codex plugin add research-foundation@dearcat
 ```
 
 然后开启新的 Codex session 以加载更新后的 skills 和 hooks。
