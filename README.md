@@ -21,7 +21,7 @@
 
 1. **Skill 元规则**——任务开始前先查有无适用 skill，适用即调用
 2. **循 skill 执行**——按序不跳步不遗漏，判据满足才进下一步
-3. **讨论 / 执行分离**——grounding → brainstorming → grilling → executing-plans
+3. **讨论 / 执行分离**——grounding → brainstorming → grilling → executing-plans；事实归证据，决策归用户
 4. **Sub-agent 调度哲学**——按任务性质选成本档；用户给定 prompt 逐字执行
 5. **完成纪律**——无新鲜验证证据不声明完成
 6. **输出精简**——只产出被要求或必需的文件
