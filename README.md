@@ -13,6 +13,8 @@
 
 核心链路：**grounding（先查证）→ brainstorming（发散）→ grilling（收敛拍板）→ executing-plans（严格落地）**。讨论与执行分离；计划未共识不动手，执行中越界即停。
 
+吸纳时的上游版本快照见 [UPSTREAM.md](UPSTREAM.md)，供日后对照上游更新做增量吸纳。
+
 ## 常驻原则
 
 [principles/foundation.md](principles/foundation.md) 由 SessionStart hook 每次会话注入（含 /clear 与 compact 后），七节：
