@@ -1,6 +1,6 @@
 {
   "name": "research-foundation",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Research foundation plugin: philosophy-level process skills (grounding / brainstorming / grilling / executing-plans / handoff / writing-skills) plus a one-page standing principles doc.",
   "author": {
     "name": "tangwenhao"
@@ -15,7 +15,7 @@
     "writing-skills"
   ],
   "skills": "./skills/",
-  "hooks": {},
+  "hooks": "./hooks/hooks.json",
   "interface": {
     "displayName": "Research Foundation",
     "shortDescription": "Philosophy-level process skills for research work",
