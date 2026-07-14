@@ -1,0 +1,31 @@
+{
+  "name": "research-foundation",
+  "version": "0.1.0",
+  "description": "Research foundation plugin: philosophy-level process skills (grounding / brainstorming / grilling / executing-plans / handoff / writing-skills) plus a one-page standing principles doc.",
+  "author": {
+    "name": "tangwenhao"
+  },
+  "license": "MIT",
+  "keywords": [
+    "research",
+    "grilling",
+    "brainstorming",
+    "grounding",
+    "executing-plans",
+    "writing-skills"
+  ],
+  "skills": "./skills/",
+  "hooks": {},
+  "interface": {
+    "displayName": "Research Foundation",
+    "shortDescription": "Philosophy-level process skills for research work",
+    "longDescription": "Grounding before opinions, brainstorming before grilling, strict plan execution, session handoff, and skill-authoring discipline — principles, not engineering SOPs.",
+    "developerName": "tangwenhao",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ]
+  }
+}

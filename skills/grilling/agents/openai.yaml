@@ -1,0 +1,3 @@
+interface:
+  display_name: "Grilling"
+  short_description: "Converge a discussion into user-approved decisions, one question at a time"

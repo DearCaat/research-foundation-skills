@@ -1,0 +1,14 @@
+{
+  "name": "twh",
+  "owner": {
+    "name": "tangwenhao"
+  },
+  "description": "个人插件 marketplace：科研基建。",
+  "plugins": [
+    {
+      "name": "research-foundation",
+      "source": "./",
+      "description": "科研基建插件：哲学级过程 skill + 常驻原则页。"
+    }
+  ]
+}

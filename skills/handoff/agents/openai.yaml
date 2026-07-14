@@ -1,0 +1,6 @@
+interface:
+  display_name: "Handoff"
+  short_description: "Compress the session into a handoff doc for the next session"
+
+policy:
+  allow_implicit_invocation: false
