@@ -1,7 +1,6 @@
 ---
 name: handoff
 description: 把当前会话压缩成交接文档，供下一个 session 无缝接手。
-disable-model-invocation: true
 ---
 
 # handoff 会话交接

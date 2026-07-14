@@ -38,36 +38,34 @@
 | `handoff` | 仅手动 `/handoff` | 把会话压缩成交接文档给下一个 session |
 | `writing-skills` | 写 skill、改 skill、review skill | skill 写作与维护规范（12 条原则 + review gates） |
 
-## 安装
+## 安装（Codex）
 
-### Claude Code
-
-```bash
-claude plugin marketplace add /mnt/d/twh/research-foundation
-claude plugin install research-foundation@twh
-```
-
-（或仓库在其他路径 / 远程 git 时，将第一行参数换成对应路径或 `owner/repo`。）
-
-更新：修改本仓库并 bump `.claude-plugin/plugin.json` 的 `version` 后——
+本仓库本身就是一个 Codex marketplace：`.agents/plugins/marketplace.json` 中的 `twh` 市场暴露 `research-foundation` 插件。发布到 GitHub 后，任何用户可直接从仓库添加市场：
 
 ```bash
-claude plugin marketplace update twh
-claude plugin update research-foundation@twh
-```
-
-然后 `/reload-plugins` 或开新会话生效。
-
-### Codex
-
-```bash
-codex plugin marketplace add /mnt/d/twh/research-foundation
+codex plugin marketplace add DearCaat/research-foundation-skills --ref main
 codex plugin add research-foundation@twh
 ```
 
-清单在 `.codex-plugin/plugin.json`（`skills` 为单路径字符串，指向 `./skills/`，Codex 递归发现 `SKILL.md`）；本地 marketplace 定义在 `.agents/plugins/marketplace.json`。常驻原则复用同一份 `hooks/hooks.json`——Codex 的 hooks 与 Claude Code 同 schema，且兼容 `CLAUDE_PLUGIN_ROOT` 变量；首次会话 Codex 会要求信任该 hook（unmanaged hook 审查机制），确认后 SessionStart 即注入 foundation。每个 skill 的 Codex 元数据在各自 `agents/openai.yaml`。
+也可以使用完整仓库 URL：
 
-更新：bump `.codex-plugin/plugin.json` 的 `version` 后重新 `codex plugin add research-foundation@twh` 刷新快照。
+```bash
+codex plugin marketplace add https://github.com/DearCaat/research-foundation-skills.git --ref main
+codex plugin add research-foundation@twh
+```
+
+安装后请开一个新的 Codex session。插件包含 `SessionStart` hook；Codex 会在首次启用或 hook 更新后要求审查并信任该 command hook。该 hook 仅输出插件中的 `principles/foundation.md`，使用 Codex 提供的 `PLUGIN_ROOT` 环境变量定位已安装插件目录。
+
+### 更新
+
+发布新版本时，更新 `.codex-plugin/plugin.json` 的语义化 `version` 并推送到 `main`。已安装用户执行：
+
+```bash
+codex plugin marketplace upgrade twh
+codex plugin add research-foundation@twh
+```
+
+然后开启新的 Codex session 以加载更新后的 skills 和 hooks。
 
 ## 修改本插件
 

@@ -1,10 +1,12 @@
 {
   "name": "research-foundation",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Research foundation plugin: philosophy-level process skills (grounding / brainstorming / grilling / executing-plans / handoff / writing-skills) plus a one-page standing principles doc.",
   "author": {
     "name": "tangwenhao"
   },
+  "homepage": "https://github.com/DearCaat/research-foundation-skills",
+  "repository": "https://github.com/DearCaat/research-foundation-skills",
   "license": "MIT",
   "keywords": [
     "research",
@@ -26,6 +28,11 @@
       "Interactive",
       "Read",
       "Write"
+    ],
+    "defaultPrompt": [
+      "Use Research Foundation to help me scope a new research question.",
+      "Use Research Foundation to turn my agreed research plan into a verified execution checklist.",
+      "Use Research Foundation to review a proposed skill before I add it to this plugin."
     ]
   }
 }
