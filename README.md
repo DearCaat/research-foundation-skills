@@ -38,34 +38,45 @@
 | `handoff` | 仅手动 `/handoff` | 把会话压缩成交接文档给下一个 session |
 | `writing-skills` | 写 skill、改 skill、review skill | skill 写作与维护规范（12 条原则 + review gates） |
 
-## 安装（Codex）
+## 安装
 
-本仓库本身就是一个 Codex marketplace：`.agents/plugins/marketplace.json` 中的 `dearcat` 市场暴露 `research-foundation` 插件。发布到 GitHub 后，任何用户可直接从仓库添加市场：
+本仓库同时是 Claude Code marketplace（`.claude-plugin/marketplace.json`）和 Codex marketplace（`.agents/plugins/marketplace.json`），市场名均为 `dearcat`。
+
+### Claude Code
+
+```bash
+claude plugin marketplace add DearCaat/research-foundation-skills
+claude plugin install research-foundation@dearcat
+```
+
+（`owner/repo` 简写等价于完整 URL `https://github.com/DearCaat/research-foundation-skills.git`，SSH URL 亦可。）安装后 `/reload-plugins` 或开新会话生效；SessionStart hook 会注入 `principles/foundation.md`（含 `/clear` 与 compact 后重注入）。
+
+### Codex
 
 ```bash
 codex plugin marketplace add DearCaat/research-foundation-skills --ref main
 codex plugin add research-foundation@dearcat
 ```
 
-也可以使用完整仓库 URL：
+安装后开一个新的 Codex session。Codex 会在首次启用或 hook 更新后要求审查并信任该 command hook，信任后 SessionStart 即注入 foundation。
 
-```bash
-codex plugin marketplace add https://github.com/DearCaat/research-foundation-skills.git --ref main
-codex plugin add research-foundation@dearcat
-```
-
-安装后请开一个新的 Codex session。插件包含 `SessionStart` hook；Codex 会在首次启用或 hook 更新后要求审查并信任该 command hook。该 hook 仅输出插件中的 `principles/foundation.md`，使用 Codex 提供的 `PLUGIN_ROOT` 环境变量定位已安装插件目录。
+两端共用同一份 `hooks/hooks.json`，以 `${CLAUDE_PLUGIN_ROOT}` 定位插件目录——这是 Claude Code 唯一支持的插件根变量，Codex 官方为兼容 Claude 插件 hook 同样提供它。
 
 ### 更新
 
-发布新版本时，更新 `.codex-plugin/plugin.json` 的语义化 `version` 并推送到 `main`。已安装用户执行：
+发布新版本：bump 两个 `plugin.json`（`.claude-plugin/` 与 `.codex-plugin/`）的 `version` 并推送到 `main`。已安装用户执行：
 
 ```bash
+# Claude Code
+claude plugin marketplace update dearcat
+claude plugin update research-foundation@dearcat
+
+# Codex
 codex plugin marketplace upgrade dearcat
 codex plugin add research-foundation@dearcat
 ```
 
-然后开启新的 Codex session 以加载更新后的 skills 和 hooks。
+然后开新 session（或 Claude Code 里 `/reload-plugins`）加载更新。
 
 ## 修改本插件
 
