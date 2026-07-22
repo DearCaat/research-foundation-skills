@@ -1,6 +1,6 @@
 # research-foundation
 
-科研工作的 agent 基建插件：**一页常驻原则 + 七个哲学级过程 skill**。不做绑定具体业务的 skill，不搬工程 SOP。
+科研工作的 agent 基建插件：**一页常驻原则 + 八个哲学级过程 skill**。不做绑定具体业务的 skill，不搬工程 SOP。
 
 ## 哲学
 
@@ -20,8 +20,8 @@
 [principles/foundation.md](principles/foundation.md) 由 SessionStart hook 每次会话注入（含 /clear 与 compact 后），七节：
 
 1. **Skill 元规则**——任务开始前先查有无适用 skill，适用即调用
-2. **循 skill 执行**——按序不跳步不遗漏，判据满足才进下一步
-3. **讨论 / 执行分离**——grounding → brainstorming → grilling → executing-plans；事实归证据，决策归用户
+2. **循 skill 执行**——机械步骤与 gate 按文本走，判断类以成功条件的证据为准
+3. **讨论 / 执行分离**——grounding → brainstorming → grilling → executing-plans；事实归证据，取舍归用户
 4. **Sub-agent 调度哲学**——按任务性质选成本档；用户给定 prompt 逐字执行
 5. **完成纪律**——无新鲜验证证据不声明完成
 6. **输出精简**——只产出被要求或必需的文件
@@ -34,8 +34,9 @@
 | `grounding` | 状态触发：需求不清、背景不明、要给建议时自动启动 | evidence before opinion，先查 primary sources 再开口 |
 | `debugging` | 状态触发：bug、报错、测试失败、性能退化、意外实验结果或异常数据 | 先建 tight 反馈回路，以证据查明根因再修复 |
 | `brainstorming` | 开新课题 / 新分析 / 新章节 / 新想法之前 | 先把选项面撑大，再评判 |
-| `grilling` | 任何需要与用户对齐决策的讨论 | 一次一问，决策逐个交用户拍板 |
+| `grilling` | 任何需要与用户对齐决策的讨论 | 一次一问，取舍逐个交用户拍板 |
 | `executing-plans` | 有一份已共识的计划要落地 | 只做计划写明的事，遇阻即停、问而不猜 |
+| `red-teaming` | 仅手动 `/red-teaming` | 拷打用户点名的方案/断言，交付被击破的前提或可抽查的未击破报告 |
 | `handoff` | 仅手动 `/handoff` | 把会话压缩成交接文档给下一个 session |
 | `writing-skills` | 写 skill、改 skill、review skill | skill 写作与维护规范（12 条原则 + review gates） |
 

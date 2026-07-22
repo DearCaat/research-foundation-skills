@@ -1,7 +1,7 @@
 {
   "name": "research-foundation",
-  "version": "0.2.3",
-  "description": "Research foundation plugin: philosophy-level process skills (grounding / debugging / brainstorming / grilling / executing-plans / handoff / writing-skills) plus a one-page standing principles doc.",
+  "version": "0.3.0",
+  "description": "Research foundation plugin: philosophy-level process skills (grounding / debugging / brainstorming / grilling / red-teaming / executing-plans / handoff / writing-skills) plus a one-page standing principles doc.",
   "author": {
     "name": "dearcat"
   },
@@ -11,6 +11,7 @@
   "keywords": [
     "research",
     "grilling",
+    "red-teaming",
     "brainstorming",
     "grounding",
     "executing-plans",

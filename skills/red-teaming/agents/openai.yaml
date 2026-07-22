@@ -1,0 +1,5 @@
+interface:
+  display_name: "Red-teaming"
+  short_description: "Attack a user-named plan or claim; deliver broken premises with evidence, or an auditable not-broken report"
+policy:
+  allow_implicit_invocation: false
