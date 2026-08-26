@@ -62,7 +62,7 @@ codex plugin add research-foundation@dearcat
 
 安装后开一个新的 Codex session。Codex 会在首次启用或 hook 更新后要求审查并信任该 command hook，信任后 SessionStart 即注入 foundation。
 
-两端共用同一份 `hooks/hooks.json`，以 `${CLAUDE_PLUGIN_ROOT}` 定位插件目录——这是 Claude Code 唯一支持的插件根变量，Codex 官方为兼容 Claude 插件 hook 同样提供它。
+两端共用同一份 `hooks/hooks.json`：Codex 优先使用官方的 `${PLUGIN_ROOT}`，Claude Code 则回退到 `${CLAUDE_PLUGIN_ROOT}`。这样同一个 hook 无需依赖任一运行时的兼容变量。
 
 ### 更新
 
