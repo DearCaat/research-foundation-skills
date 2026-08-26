@@ -26,3 +26,14 @@
 落点：writing-skills `references/principles.md` 第 12 条「输入与产物的必要性」。
 
 吸纳原则：只取哲学，不搬工程 SOP；对应落点见 [README](README.md) 与 `principles/foundation.md`。
+
+## 2026-08-26（v0.4.0 增量吸纳）
+
+| 上游 | commit / tag | 上游版本 | 本次新增被吸纳内容 |
+|---|---|---|---|
+| [obra/superpowers](https://github.com/obra/superpowers) | tag `v6.3.0`（2026-08-12） | plugin 6.3.0 | `skills/brainstorming`（ceremony scales with the task；单向棘轮）、`skills/subagent-driven-development`（Model Selection 的显式指定模型与 turn-count 判据；task-reviewer-prompt 的 Do Not Trust the Report 与 Missing/Extra/Misunderstood 三分）、`skills/receiving-code-review`（YAGNI Check：不需要的功能不要加）、PR1934（detritus 三形态；其 eval-gated 删除机制未吸纳，本地无 behavior eval 基建） |
+| [mattpocock/skills](https://github.com/mattpocock/skills) | main（2026-08-24） | plugin 1.2.3 | 本轮复核后未新增吸纳；round/frontier 批量提问经社区实测反弹（#771/#840/#895/#274/#44）明确不吸纳 |
+
+落点：`principles/foundation.md` §2（rule/gate 分层）、§3（小事不走全套）、§4（sub-agent 调度重写）、§6（先答科研问题再谈工程完备）；writing-skills `references/principles.md` 第 2 条（机械化前置）、第 12 条（机制受必要性约束；删规则文本的判据）。
+
+不吸纳：上游 brainstorming 的 spike / bounded / architectural 三档分类——其锚点是"仓库里有无现成流程可读"，科研语境无等价客观锚点，分档会退化为 agent 自评并招致升档判据膨胀，改为只保留"产物随任务缩放、批准不缩放"一条判据；prompt 模板、字段表、状态取值、报告格式（插件只写哲学）；"sub-agent 不得再派 sub-agent"类条款；Rulings-not-stalls 与必停清单（用户裁定保留原红线）；TDD iron law、worktree、review package、ledger、circuit breaker 等软件工程 SOP。
