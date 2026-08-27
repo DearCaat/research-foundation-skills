@@ -14,7 +14,7 @@ description: evidence before opinion：当用户需求还不清晰、背景不�
 - 对缺口主动探索环境，直取 primary sources：论文原文（DOI / arXiv）、官方文档、作者本人博客，不用二手转述。
 - 带引用汇报发现并给出建议，随后开启讨论（转 /brainstorming 或 /grilling）。
 - 每条 claim 标来源，并区分 peer-reviewed / preprint / 博客的证据强度。
-- 检索类 legwork 按 foundation 的调度哲学交后台低成本 sub-agent。
+- 检索类 legwork 按 foundation 的调度哲学交后台 sub-agent。
 
 ## 完成判据
 给出的每条建议、对用户前提的每个判定，都能追溯到具体来源；本会话已读材料即合法来源，直接引用。

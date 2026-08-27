@@ -37,3 +37,11 @@
 落点：`principles/foundation.md` §2（rule/gate 分层）、§3（小事不走全套）、§4（sub-agent 调度重写）、§6（先答科研问题再谈工程完备）；writing-skills `references/principles.md` 第 2 条（机械化前置）、第 12 条（机制受必要性约束；删规则文本的判据）。
 
 不吸纳：上游 brainstorming 的 spike / bounded / architectural 三档分类——其锚点是"仓库里有无现成流程可读"，科研语境无等价客观锚点，分档会退化为 agent 自评并招致升档判据膨胀，改为只保留"产物随任务缩放、批准不缩放"一条判据；prompt 模板、字段表、状态取值、报告格式（插件只写哲学）；"sub-agent 不得再派 sub-agent"类条款；Rulings-not-stalls 与必停清单（用户裁定保留原红线）；TDD iron law、worktree、review package、ledger、circuit breaker 等软件工程 SOP。
+
+## 2026-08-27（v0.5.0 委派哲学收敛）
+
+本轮没有扩大上游吸纳范围，继续收敛 v0.4.0 已吸纳的 sub-agent 哲学。落点：`principles/foundation.md` §4 改为以主 agent context 成本决定是否委派，§3 增停止判据，§6 增范围边界，末尾新增 §8「实事求是」以避免既有章号顺延；新增 `delegating` skill 与 `principles/foundation-subagent.md`。foundation 常驻页由 1926 缩至 1702 字符。
+
+原 `writing-skills/references/principles.md` 第 12 条「大范围探索交 sub-agent 隔离承担……」已并入 foundation §4，原处只保留输入先定位、按需读取。
+
+`SubagentStart` hook 初测在既有 VS Code 长驻 app-server 中未触发；根因是 app-server 启动早于 plugin hook 更新且不热重载，并非 hook 协议无效。新起 Codex runtime 的真实 child transcript 已出现 `hooks.additional_context` 注入的 foundation 与子代理增量；更新 hook 后须重载 Codex 宿主再验证。

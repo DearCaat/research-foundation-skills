@@ -1,7 +1,7 @@
 {
   "name": "research-foundation",
-  "version": "0.4.1",
-  "description": "Research foundation plugin: philosophy-level process skills (grounding / debugging / brainstorming / grilling / red-teaming / executing-plans / handoff / writing-skills) plus a one-page standing principles doc.",
+  "version": "0.5.0",
+  "description": "Research foundation plugin: philosophy-level process skills (grounding / debugging / brainstorming / grilling / red-teaming / executing-plans / handoff / writing-skills / delegating) plus a one-page standing principles doc.",
   "author": {
     "name": "dearcat"
   },
@@ -15,14 +15,15 @@
     "brainstorming",
     "grounding",
     "executing-plans",
-    "writing-skills"
+    "writing-skills",
+    "delegating"
   ],
   "skills": "./skills/",
   "hooks": "./hooks/hooks.json",
   "interface": {
     "displayName": "Research Foundation",
     "shortDescription": "Philosophy-level process skills for research work",
-    "longDescription": "Grounding before opinions, root-cause debugging via tight feedback loops, brainstorming before grilling, strict plan execution, session handoff, and skill-authoring discipline — principles, not engineering SOPs.",
+    "longDescription": "Grounding before opinions, root-cause debugging via tight feedback loops, brainstorming before grilling, strict plan execution, context-aware delegation, session handoff, and skill-authoring discipline — principles, not engineering SOPs.",
     "developerName": "dearcat",
     "category": "Productivity",
     "capabilities": [

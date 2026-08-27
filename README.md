@@ -1,6 +1,6 @@
 # research-foundation
 
-科研工作的 agent 基建插件：**一页常驻原则 + 八个哲学级过程 skill**。不做绑定具体业务的 skill，不搬工程 SOP。
+科研工作的 agent 基建插件：**一页常驻原则 + 九个哲学级过程 skill**。不做绑定具体业务的 skill，不搬工程 SOP。
 
 ## 哲学
 
@@ -17,15 +17,16 @@
 
 ## 常驻原则
 
-[principles/foundation.md](principles/foundation.md) 由 SessionStart hook 每次会话注入（含 /clear 与 compact 后），七节：
+[principles/foundation.md](principles/foundation.md) 由 SessionStart hook 每次会话注入（含 /clear 与 compact 后），八节：
 
 1. **Skill 元规则**——任务开始前先查有无适用 skill，适用即调用
 2. **循 skill 执行**——机械步骤与 gate 按文本走，判断类以成功条件的证据为准
 3. **讨论 / 执行分离**——grounding → brainstorming → grilling → executing-plans；事实归证据，取舍归用户
-4. **Sub-agent 调度哲学**——按任务性质选成本档；用户给定 prompt 逐字执行
+4. **Sub-agent 调度**——context 是最稀缺的资源，探路过程外包、只回收结论；怎么派见 /delegating
 5. **完成纪律**——无新鲜验证证据不声明完成
 6. **输出精简**——只产出被要求或必需的文件
 7. **写 skill 遵循 writing-skills**
+8. **实事求是**——反驳落在证据上；改口须说清新证据或原推理错在哪
 
 ## Skills
 
@@ -39,6 +40,7 @@
 | `red-teaming` | 仅手动 `/red-teaming` | 拷打用户点名的方案/断言，交付被击破的前提或可抽查的未击破报告 |
 | `handoff` | 仅手动 `/handoff` | 把会话压缩成交接文档给下一个 session |
 | `writing-skills` | 写 skill、改 skill、review skill | skill 写作与维护规范（12 条原则 + review gates） |
+| `delegating` | 准备委派、督办或核验 sub-agent 返回时 | 按 context 成本决定是否外包，并对产物与结论负责 |
 
 ## 安装
 
