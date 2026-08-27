@@ -1,6 +1,6 @@
 # research-foundation
 
-科研工作的 agent 基建插件：**一页常驻原则 + 九个哲学级过程 skill**。不做绑定具体业务的 skill，不搬工程 SOP。
+科研工作的 agent 基建插件：**一页常驻原则 + 十个哲学级过程 skill**。不做绑定具体业务的 skill，不搬工程 SOP。
 
 ## 哲学
 
@@ -26,7 +26,7 @@
 5. **完成纪律**——无新鲜验证证据不声明完成
 6. **输出精简**——只产出被要求或必需的文件
 7. **写 skill 遵循 writing-skills**
-8. **实事求是**——反驳落在证据上；改口须说清新证据或原推理错在哪
+8. **实事求是**——反驳落在证据上；改口须说清新证据或原推理错在哪，方向变化与决策时转 /truth-seeking 校准
 
 ## Skills
 
@@ -41,6 +41,7 @@
 | `handoff` | 仅手动 `/handoff` | 把会话压缩成交接文档给下一个 session |
 | `writing-skills` | 写 skill、改 skill、review skill | skill 写作与维护规范（12 条原则 + review gates） |
 | `delegating` | 准备委派、督办或核验 sub-agent 返回时 | 按 context 成本决定是否外包，并对产物与结论负责 |
+| `truth-seeking` | 用户改变方向、要求决策，或 agent 准备随之改口时 | 区分证据、纠错、偏好与权责，阻止迎合性立场漂移 |
 
 ## 安装
 

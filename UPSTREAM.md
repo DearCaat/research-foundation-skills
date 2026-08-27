@@ -45,3 +45,7 @@
 原 `writing-skills/references/principles.md` 第 12 条「大范围探索交 sub-agent 隔离承担……」已并入 foundation §4，原处只保留输入先定位、按需读取。
 
 `SubagentStart` hook 初测在既有 VS Code 长驻 app-server 中未触发；根因是 app-server 启动早于 plugin hook 更新且不热重载，并非 hook 协议无效。新起 Codex runtime 的真实 child transcript 已出现 `hooks.additional_context` 注入的 foundation 与子代理增量；更新 hook 后须重载 Codex 宿主再验证。
+
+## 2026-08-27（v0.5.1 求真校准）
+
+新增 model-invoked `truth-seeking`：在用户改变方向、要求决策或 agent 准备随之改口时，区分新证据、推理纠错、用户偏好与权责决定；证据不足转 `grounding` 补证。foundation §8 只增加触发路由，具体判据留在 skill，避免重复常驻原则。
