@@ -47,6 +47,15 @@ codex plugin add research-foundation-en@dearcat
 
 After installation, reload plugins or start a new session. Codex may ask you to review and trust the command hook; after approval, `UserPromptSubmit` injects the English principles before each prompt.
 
+### Grok Build
+
+```bash
+grok plugin marketplace add DearCaat/research-foundation-skills
+grok plugin install research-foundation-en --trust
+```
+
+Grok loads the Claude-compatible plugin layout. Its allowed hook path triggers the hook but discards hook stdout, so the English principles are not re-injected into that turn’s context.
+
 ## Updating
 
 Both variants are published from this repository. Bump the version in the corresponding plugin manifests when releasing an update, then refresh the marketplace and plugin in the target harness.

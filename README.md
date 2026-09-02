@@ -81,6 +81,15 @@ codex plugin add research-foundation-en@dearcat
 
 Codex 与 Claude Code 共用同一份 `hooks/hooks.json`：Codex 优先使用官方的 `${PLUGIN_ROOT}`，Claude Code 则回退到 `${CLAUDE_PLUGIN_ROOT}`。Grok Build 也会加载 Claude Code 插件并触发同一 UserPromptSubmit hook，但其允许路径会丢弃 hook stdout，因此不会获得该回合的重注入。
 
+### Grok Build
+
+```bash
+grok plugin marketplace add DearCaat/research-foundation-skills
+grok plugin install research-foundation-en --trust
+```
+
+不带 `-en` 的 `research-foundation` 是默认中文变体；Grok 的 hook 触发行为与 Claude Code 相同，但其允许路径不会把 hook stdout 注入上下文。
+
 ### 更新
 
 发布新版本：bump 两个 `plugin.json`（`.claude-plugin/` 与 `.codex-plugin/`）的 `version` 并推送到 `main`。已安装用户执行：
