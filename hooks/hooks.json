@@ -2,7 +2,7 @@
   "hooks": {
     "SessionStart": [
       {
-        "matcher": "^compact$",
+        "matcher": "startup|resume|clear|compact|fork",
         "hooks": [
           {
             "type": "command",
@@ -22,16 +22,6 @@
           {
             "type": "command",
             "command": "cat \"${PLUGIN_ROOT:-${CLAUDE_PLUGIN_ROOT}}/principles/foundation-subagent.md\""
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "cat \"${PLUGIN_ROOT:-${CLAUDE_PLUGIN_ROOT}}/principles/foundation.md\""
           }
         ]
       }

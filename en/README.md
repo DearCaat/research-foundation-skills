@@ -10,7 +10,7 @@ The process chain is **grounding (verify first) → brainstorming (diverge) → 
 
 ## Permanent principles
 
-[principles/foundation.md](principles/foundation.md) is injected by the `UserPromptSubmit` hook before every user prompt. The `SessionStart` hook runs only after compaction to restore the principles for continuation. `SubagentStart` injects the main principles and the sub-agent increment.
+[principles/foundation.md](principles/foundation.md) is injected by the `SessionStart` hook on startup, resume, clear, compaction, or fork. `SubagentStart` injects the main principles and the sub-agent increment.
 
 ## Skills
 
@@ -45,7 +45,7 @@ codex plugin marketplace add DearCaat/research-foundation-skills --ref main
 codex plugin add research-foundation-en@dearcat
 ```
 
-After installation, reload plugins or start a new session. Codex may ask you to review and trust the command hook; after approval, `UserPromptSubmit` injects the English principles before each prompt.
+After installation, reload plugins or start a new session. Codex may ask you to review and trust the command hook; after approval, `SessionStart` injects the English principles on startup, resume, clear, compaction, or fork.
 
 ### Grok Build
 

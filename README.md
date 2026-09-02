@@ -28,7 +28,7 @@
 
 ## 常驻原则
 
-[principles/foundation.md](principles/foundation.md) 由 UserPromptSubmit hook 在每条用户 prompt 前注入；SessionStart hook 仅在 compact 后为续写恢复；八节：
+[principles/foundation.md](principles/foundation.md) 由 SessionStart hook 在启动、恢复、清空、compact 或 fork 时注入；八节：
 
 1. **Skill 元规则**——任务开始前先查有无适用 skill，适用即调用
 2. **循 skill 执行**——机械步骤与 gate 按文本走，判断类以成功条件的证据为准
@@ -71,7 +71,7 @@ claude plugin install research-foundation@dearcat
 claude plugin install research-foundation-en@dearcat
 ```
 
-（`owner/repo` 简写等价于完整 URL `https://github.com/DearCaat/research-foundation-skills.git`，SSH URL 亦可。）安装后 `/reload-plugins` 或开新会话生效；UserPromptSubmit hook 会在每条用户 prompt 前注入，SessionStart hook 仅在 compact 后为续写恢复 foundation。
+（`owner/repo` 简写等价于完整 URL `https://github.com/DearCaat/research-foundation-skills.git`，SSH URL 亦可。）安装后 `/reload-plugins` 或开新会话生效；SessionStart hook 会在启动、恢复、清空、compact 或 fork 时注入 foundation。
 
 ### Codex
 
@@ -86,9 +86,9 @@ codex plugin add research-foundation@dearcat
 codex plugin add research-foundation-en@dearcat
 ```
 
-安装后开一个新的 Codex session。Codex 会在首次启用或 hook 更新后要求审查并信任该 command hook，信任后 UserPromptSubmit 在每条用户 prompt 前注入 foundation，SessionStart 仅在 compact 后为续写恢复。
+安装后开一个新的 Codex session。Codex 会在首次启用或 hook 更新后要求审查并信任该 command hook，信任后 SessionStart 会在启动、恢复、清空、compact 或 fork 时注入 foundation。
 
-Codex 与 Claude Code 共用同一份 `hooks/hooks.json`：Codex 优先使用官方的 `${PLUGIN_ROOT}`，Claude Code 则回退到 `${CLAUDE_PLUGIN_ROOT}`。Grok Build 也会加载 Claude Code 插件并触发同一 UserPromptSubmit hook，但其允许路径会丢弃 hook stdout，因此不会获得该回合的重注入。
+Codex 与 Claude Code 共用同一份 `hooks/hooks.json`：Codex 优先使用官方的 `${PLUGIN_ROOT}`，Claude Code 则回退到 `${CLAUDE_PLUGIN_ROOT}`。Grok Build 也会加载 Claude Code 插件并触发同一 SessionStart hook；其允许路径不会把 hook stdout 注入上下文。
 
 ### Grok Build
 
