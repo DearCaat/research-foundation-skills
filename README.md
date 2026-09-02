@@ -2,6 +2,8 @@
 
 科研工作的 agent 基建插件：**一页常驻原则 + 十个哲学级过程 skill**。不做绑定具体业务的 skill，不搬工程 SOP。
 
+默认安装的是中文变体；英文-only 变体位于 [`en/`](en/)（英文说明见 [`en/README.md`](en/README.md)），两者在同一仓库中作为独立插件安装。
+
 ## 哲学
 
 随着模型能力增强，繁琐的工程化流程正在变成负担。约束 agent 过程的更好方式是：**原则性的轻量规范 + 苛刻的完成判据**，而不是逐步铺陈的 SOP。
@@ -54,6 +56,12 @@ claude plugin marketplace add DearCaat/research-foundation-skills
 claude plugin install research-foundation@dearcat
 ```
 
+需要英文-only 版本时安装同一 marketplace 中的独立插件：
+
+```bash
+claude plugin install research-foundation-en@dearcat
+```
+
 （`owner/repo` 简写等价于完整 URL `https://github.com/DearCaat/research-foundation-skills.git`，SSH URL 亦可。）安装后 `/reload-plugins` 或开新会话生效；UserPromptSubmit hook 会在每条用户 prompt 前注入，SessionStart hook 仅在 compact 后为续写恢复 foundation。
 
 ### Codex
@@ -61,6 +69,12 @@ claude plugin install research-foundation@dearcat
 ```bash
 codex plugin marketplace add DearCaat/research-foundation-skills --ref main
 codex plugin add research-foundation@dearcat
+```
+
+英文-only 版本：
+
+```bash
+codex plugin add research-foundation-en@dearcat
 ```
 
 安装后开一个新的 Codex session。Codex 会在首次启用或 hook 更新后要求审查并信任该 command hook，信任后 UserPromptSubmit 在每条用户 prompt 前注入 foundation，SessionStart 仅在 compact 后为续写恢复。

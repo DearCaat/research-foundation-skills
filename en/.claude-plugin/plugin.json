@@ -1,0 +1,36 @@
+{
+  "name": "research-foundation-en",
+  "version": "0.5.4",
+  "homepage": "https://github.com/DearCaat/research-foundation-skills",
+  "repository": "https://github.com/DearCaat/research-foundation-skills",
+  "description": "Research infrastructure plugin: philosophy-level process skills and a permanent principles page.",
+  "author": {
+    "name": "dearcat"
+  },
+  "license": "MIT",
+  "keywords": [
+    "research",
+    "grilling",
+    "brainstorming",
+    "grounding",
+    "debugging",
+    "red-teaming",
+    "executing-plans",
+    "writing-skills",
+    "delegating",
+    "truth-seeking",
+    "principles"
+  ],
+  "skills": [
+    "./skills/grilling",
+    "./skills/red-teaming",
+    "./skills/brainstorming",
+    "./skills/executing-plans",
+    "./skills/grounding",
+    "./skills/debugging",
+    "./skills/handoff",
+    "./skills/writing-skills",
+    "./skills/delegating",
+    "./skills/truth-seeking"
+  ]
+}

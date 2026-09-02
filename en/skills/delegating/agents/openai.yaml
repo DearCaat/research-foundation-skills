@@ -1,0 +1,3 @@
+interface:
+  display_name: "Delegating"
+  short_description: "Decide what to hand to a sub-agent, brief it, watch the artifacts, verify what comes back"

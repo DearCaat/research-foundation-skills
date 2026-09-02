@@ -9,6 +9,11 @@
       "name": "research-foundation",
       "source": "./",
       "description": "科研基建插件：哲学级过程 skill + 常驻原则页。"
+    },
+    {
+      "name": "research-foundation-en",
+      "source": "./en",
+      "description": "Research foundation plugin: philosophy-level process skills and permanent principles in English."
     }
   ]
 }

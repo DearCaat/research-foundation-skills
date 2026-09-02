@@ -1,0 +1,41 @@
+{
+  "name": "research-foundation-en",
+  "version": "0.5.4",
+  "description": "Research foundation plugin: philosophy-level process skills in English.",
+  "author": {
+    "name": "dearcat"
+  },
+  "homepage": "https://github.com/DearCaat/research-foundation-skills",
+  "repository": "https://github.com/DearCaat/research-foundation-skills",
+  "license": "MIT",
+  "keywords": [
+    "research",
+    "grilling",
+    "red-teaming",
+    "brainstorming",
+    "grounding",
+    "executing-plans",
+    "writing-skills",
+    "delegating",
+    "truth-seeking",
+    "principles"
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json",
+  "interface": {
+    "displayName": "Research Foundation (English)",
+    "shortDescription": "English research process skills and evidence-led agent principles",
+    "longDescription": "Grounding before opinions, evidence-led truth-seeking when direction changes, root-cause debugging, brainstorming before grilling, strict plan execution, context-aware delegation, session handoff, and skill-authoring discipline.",
+    "developerName": "dearcat",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Research Foundation (English) to help me scope a new research question.",
+      "Use Research Foundation (English) to turn my agreed research plan into a verified execution checklist."
+    ]
+  }
+}
