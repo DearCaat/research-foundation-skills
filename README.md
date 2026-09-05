@@ -28,7 +28,7 @@
 
 ## 常驻原则
 
-[principles/foundation.md](principles/foundation.md) 由 SessionStart hook 在启动、恢复、清空、compact 或 fork 时注入；八节：
+[principles/foundation.md](principles/foundation.md) 在支持 SessionStart stdout 注入的 harness 中由 hook 注入；Grok Build 则使用专用的 [global-rule 适配文件](grok/research-foundation.md)。八节：
 
 1. **Skill 元规则**——任务开始前先查有无适用 skill，适用即调用
 2. **循 skill 执行**——机械步骤与 gate 按文本走，判断类以成功条件的证据为准
@@ -88,16 +88,38 @@ codex plugin add research-foundation-en@dearcat
 
 安装后开一个新的 Codex session。Codex 会在首次启用或 hook 更新后要求审查并信任该 command hook，信任后 SessionStart 会在启动、恢复、清空、compact 或 fork 时注入 foundation。
 
-Codex 与 Claude Code 共用同一份 `hooks/hooks.json`：Codex 优先使用官方的 `${PLUGIN_ROOT}`，Claude Code 则回退到 `${CLAUDE_PLUGIN_ROOT}`。Grok Build 也会加载 Claude Code 插件并触发同一 SessionStart hook；其允许路径不会把 hook stdout 注入上下文。
+Codex 与 Claude Code 共用同一份 `hooks/hooks.json`：Codex 优先使用官方的 `${PLUGIN_ROOT}`，Claude Code 则回退到 `${CLAUDE_PLUGIN_ROOT}`。
 
 ### Grok Build
 
 ```bash
 grok plugin marketplace add DearCaat/research-foundation-skills
-grok plugin install research-foundation-en --trust
+grok plugin install research-foundation --trust
+
+# 经 Grok Build 1.0.13 实测，本插件的 SessionStart / SubagentStart hook 未注册进运行时；
+# 安装全局 rule，主会话和子 agent 都会自动加载它。
+rules_dir="${GROK_HOME:-$HOME/.grok}/rules"
+mkdir -p "$rules_dir"
+curl -fsSL \
+  https://raw.githubusercontent.com/DearCaat/research-foundation-skills/main/grok/research-foundation.md \
+  -o "$rules_dir/research-foundation.md"
+
+# 应列出 scope=global 的 research-foundation.md
+grok inspect
 ```
 
-不带 `-en` 的 `research-foundation` 是默认中文变体；Grok 的 hook 触发行为与 Claude Code 相同，但其允许路径不会把 hook stdout 注入上下文。
+不带 `-en` 的 `research-foundation` 是默认中文变体。Grok 会加载本插件的十个 skills，但经 Grok Build 1.0.13 实测不会把插件 hook 注册为可执行 hook；即使未来注册，`SessionStart` 的 stdout 也不会注入模型上下文。因此必须安装上面的 global rule。该 rule 包含“仅对子代理生效”的增量，实际 child session 会继承它。
+
+英文-only 版本使用：
+
+```bash
+grok plugin install research-foundation-en --trust
+rules_dir="${GROK_HOME:-$HOME/.grok}/rules"
+mkdir -p "$rules_dir"
+curl -fsSL \
+  https://raw.githubusercontent.com/DearCaat/research-foundation-skills/main/en/grok/research-foundation.md \
+  -o "$rules_dir/research-foundation.md"
+```
 
 ### 更新
 
@@ -111,7 +133,17 @@ claude plugin update research-foundation@dearcat
 # Codex
 codex plugin marketplace upgrade dearcat
 codex plugin add research-foundation@dearcat
+
+# Grok Build（中文默认版）
+grok plugin marketplace update DearCaat/research-foundation-skills
+grok plugin update research-foundation
+rules_dir="${GROK_HOME:-$HOME/.grok}/rules"
+curl -fsSL \
+  https://raw.githubusercontent.com/DearCaat/research-foundation-skills/main/grok/research-foundation.md \
+  -o "$rules_dir/research-foundation.md"
 ```
+
+Grok 英文版将上面两处 `research-foundation` 分别替换为 `research-foundation-en` 与 `en/grok/research-foundation.md`。更新后开一个新 session；`grok inspect` 应列出 scope=global 的 `research-foundation.md`。
 
 然后开新 session（或 Claude Code 里 `/reload-plugins`）加载更新。
 

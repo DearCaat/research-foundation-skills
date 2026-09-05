@@ -10,7 +10,7 @@ The process chain is **grounding (verify first) → brainstorming (diverge) → 
 
 ## Permanent principles
 
-[principles/foundation.md](principles/foundation.md) is injected by the `SessionStart` hook on startup, resume, clear, compaction, or fork. `SubagentStart` injects the main principles and the sub-agent increment.
+[principles/foundation.md](principles/foundation.md) is injected by hooks in harnesses that support SessionStart stdout injection. Grok Build uses the dedicated [global-rule adapter](grok/research-foundation.md) instead.
 
 ## Skills
 
@@ -52,10 +52,34 @@ After installation, reload plugins or start a new session. Codex may ask you to 
 ```bash
 grok plugin marketplace add DearCaat/research-foundation-skills
 grok plugin install research-foundation-en --trust
+
+# In a verified Grok Build 1.0.13 run, this plugin's SessionStart / SubagentStart
+# hooks at runtime. Install the global rule for both main and child sessions.
+rules_dir="${GROK_HOME:-$HOME/.grok}/rules"
+mkdir -p "$rules_dir"
+curl -fsSL \
+  https://raw.githubusercontent.com/DearCaat/research-foundation-skills/main/en/grok/research-foundation.md \
+  -o "$rules_dir/research-foundation.md"
+
+# This should list research-foundation.md with scope=global.
+grok inspect
 ```
 
-Grok loads the Claude-compatible plugin layout. Its allowed hook path triggers the hook but discards hook stdout, so the English principles are not re-injected into that turn’s context.
+Grok loads this plugin's ten skills, but a verified Grok Build 1.0.13 run did not register the plugin hooks; moreover, Grok discards `SessionStart` stdout rather than injecting it as model context. The global rule above is therefore required. It includes a conditional increment for child agents, and actual child sessions inherit the rule.
 
 ## Updating
 
 Both variants are published from this repository. Bump the version in the corresponding plugin manifests when releasing an update, then refresh the marketplace and plugin in the target harness.
+
+For Grok Build, refresh both the plugin and the global rule:
+
+```bash
+grok plugin marketplace update DearCaat/research-foundation-skills
+grok plugin update research-foundation-en
+rules_dir="${GROK_HOME:-$HOME/.grok}/rules"
+curl -fsSL \
+  https://raw.githubusercontent.com/DearCaat/research-foundation-skills/main/en/grok/research-foundation.md \
+  -o "$rules_dir/research-foundation.md"
+```
+
+Start a new session and verify that `grok inspect` lists `research-foundation.md` with `scope=global`.
