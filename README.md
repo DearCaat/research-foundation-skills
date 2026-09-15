@@ -20,7 +20,7 @@
 本插件吸纳两个上游仓库的哲学（只取哲学，不搬其工程流程）：
 
 - [mattpocock/skills](https://github.com/mattpocock/skills)：grilling（一次一问、决策归用户）、primary-source research、handoff、diagnosing-bugs 的 tight 反馈回路、prototype 的 throwaway 试算、writing-great-skills 的可预测性理论（invocation 二分、leading words、完成判据、negation 反噬、progressive disclosure）。
-- [obra/superpowers](https://github.com/obra/superpowers)：using-superpowers 元规则（适用即必须调用）、循 skill 执行（follow exactly、checklist→todo、每次重读当前版本）、brainstorming 硬门槛、systematic-debugging 根因律、executing-plans 遇阻即停、dispatching-parallel-agents 并行纪律、verification-before-completion（无证据不声明完成、字面违反即精神违反）。
+- [obra/superpowers](https://github.com/obra/superpowers)：using-superpowers 元规则（适用即必须调用）、循 skill 执行（follow exactly、checklist→todo、每次重读当前版本）、brainstorming 硬门槛、systematic-debugging 根因律、executing-plans 遇阻即停、dispatching-parallel-agents 并行纪律、verification-before-completion（无证据不声明完成）。
 
 核心链路：**grounding（先查证）→ brainstorming（发散）→ grilling（收敛拍板）→ executing-plans（严格落地）**。讨论与执行分离；计划未共识不动手，执行中越界即停。
 
@@ -33,7 +33,7 @@
 1. **Skill 元规则**——任务开始前先查有无适用 skill，适用即调用
 2. **循 skill 执行**——机械步骤与 gate 按文本走，判断类以成功条件的证据为准
 3. **讨论 / 执行分离**——grounding → brainstorming → grilling → executing-plans；事实归证据，取舍归用户
-4. **Sub-agent 调度**——context 是最稀缺的资源，探路过程外包、只回收结论；怎么派见 /delegating
+4. **Sub-agent 调度**——按独立与并行决定外包，只回收结论与指针；怎么派见 /delegating
 5. **完成纪律**——无新鲜验证证据不声明完成
 6. **输出精简**——只产出被要求或必需的文件
 7. **写 skill 遵循 writing-skills**

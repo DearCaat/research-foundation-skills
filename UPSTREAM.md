@@ -49,3 +49,26 @@
 ## 2026-08-27（v0.5.1 求真校准）
 
 新增 model-invoked `truth-seeking`：在用户改变方向、要求决策或 agent 准备随之改口时，区分新证据、推理纠错、用户偏好与权责决定；证据不足转 `grounding` 补证。foundation §8 只增加触发路由，具体判据留在 skill，避免重复常驻原则。
+
+## 2026-09-16（v0.6.0 强模型校准）
+
+本轮不吸纳上游新文件，依据厂商一手来源校准常驻页三处文本，使其停止过度约束强模型：
+
+| 来源 | 类型 | 被采用的判断 |
+|---|---|---|
+| [OpenAI: Rethinking skills and prompts for GPT-6 Astra](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra)（2026-09-11） | 博客，无量化评测 | 过度具体的指导现在会阻碍；"要求停下等 review 会把模型拉向更早的停止点，检查那是不是你真的需要做的决定"；不同模型对同一指令的约束强度不同 |
+| [Anthropic: Prompting Claude Fable 5](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5) | 官方文档 | "为旧模型写的 skill 常常过于 prescriptive，会降低产出质量"；停顿只限不可逆动作、真正的范围变更、只有用户能给的输入；暴露 context 预算会诱发提前收尾 |
+| [Anthropic: Prompting Claude Fable 5.1](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1) | 官方文档 | "对可逆且源于原请求的动作直接做，只为破坏性动作或真正的范围变更停" |
+| [Anthropic: Prompting Claude Opus 5](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5) | 官方文档 | 指令会被字面执行；过度委派警告 |
+| [Anthropic: Skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices) | 官方文档 | 自由度按任务脆弱性定；Haiku 问"够不够"、Opus 问"是否过度解释"；先建评测 |
+| [obra/superpowers](https://github.com/obra/superpowers) v6.3.0 | 上游 | 对照：using-superpowers 原文有 "If it turns out wrong for the situation, you don't have to use it"，v0.1.0 吸纳时丢失，本轮补回 |
+
+落点（四份镜像同步：`principles/foundation.md`、`grok/research-foundation.md`、`en/principles/foundation.md`、`en/grok/research-foundation.md`）：
+- §1：删「1% 也调用、绝不自我合理化」，改为「适用即调用，拿不准也调用；读完发现不适用可退出并说明」——正向陈述并补退出口，与 writing-skills principles 第 8 条一致。
+- §2：删「字面违反即精神违反……成本高于遵守本身」——该论证只对机械 gate 成立，而 §2 已把机械 gate 送进 hook，留在 rule 上即「加重语气」，与 §2 末句自相矛盾。
+- §3：删「批准不缩放，一句话方案也要停下等同意」（推翻 v0.4.0 保留裁定，依据是上述新证据），改为「停不停不看任务大小，按下段可逆性裁决」，消除与同节「可逆且低成本自决」的冲突。`skills/brainstorming` Gate 同步改引 §3。
+- §4：委派首要动机由「context 最稀缺」改为「独立与并行；需要独立判断或干净背景的审查另开 worker」，保留「只回收结论与指针」与「一条命令距离自己做」。
+
+不改（用户裁定）：SubagentStart 继续注入整页 foundation——哲学也要给执行者看，越弱越需要。异议留痕：§3 停顿规则进执行型 sub-agent 会让它返回而非继续；§3 改后此成本已下降。弱模型需要的确定性放派发 prompt（delegating「给执行器求确定」）与 harness 适配文件，不分两套哲学。
+
+未做：behavior eval。本轮全部是文本层比对，未实测；厂商来源亦为"内部测试"级，Astra 博文无数字。

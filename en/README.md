@@ -24,7 +24,7 @@ The process chain is **grounding (verify first) → brainstorming (diverge) → 
 | `red-teaming` | Explicitly invoked by the user | Attack a named plan or claim with evidence |
 | `handoff` | Explicitly invoked by the user | Compress a session for the next session |
 | `writing-skills` | Writing or reviewing a skill | Maintain predictable, well-scoped skills |
-| `delegating` | Assigning or supervising sub-agents | Delegate by context cost and verify returned artifacts |
+| `delegating` | Assigning or supervising sub-agents | Delegate for independence and parallelism; verify returned artifacts |
 | `truth-seeking` | Direction changes or a decision is requested | Keep changes in position driven by evidence |
 
 ## Installation

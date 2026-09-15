@@ -19,4 +19,4 @@ Expand the option space before evaluation so that an apparently obvious path doe
 
 ## Gate
 
-Finish brainstorming by converging before any execution. For substantial work, use `/grilling` to decide item by item; for a small task, state the intended work and expected conclusion clearly and obtain agreement.
+Finish brainstorming by converging before any execution. For substantial work, use `/grilling` to decide item by item; for a small task, state the intended work and expected conclusion clearly; whether to stop follows §3 of the standing principles.
