@@ -33,7 +33,7 @@
 1. **Skill 元规则**——任务开始前先查有无适用 skill，适用即调用
 2. **循 skill 执行**——机械步骤与 gate 按文本走，判断类以成功条件的证据为准
 3. **讨论 / 执行分离**——grounding → brainstorming → grilling → executing-plans；事实归证据，取舍归用户
-4. **Sub-agent 调度**——按独立与并行决定外包，只回收结论与指针；怎么派见 /delegating
+4. **Sub-agent 调度**——按独立与并行决定外包，只回收结论与指针；执行者不限于 sub-agent，按任务选；怎么派见 /delegating
 5. **完成纪律**——无新鲜验证证据不声明完成
 6. **输出精简**——只产出被要求或必需的文件
 7. **写 skill 遵循 writing-skills**
