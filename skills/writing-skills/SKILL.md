@@ -1,6 +1,6 @@
 ---
 name: writing-skills
-description: 写 skill、改 skill、review skill、拆分或合并 skill、把稳定流程沉淀为 skill 时使用；只处理 skill 本身的入口、结构、规则分层与 review，不用于执行 skill 所描述的业务任务本身。
+description: 写 skill、改 skill、review skill、拆分或合并 skill、把稳定流程沉淀为 skill 时使用，处理入口、结构、规则分层与 review；设计或修改插件脚本、工具、hook 返回给 agent 的内容（原则第 13 条），或插件更新的生效方式（第 14 条）时也用。不用于执行 skill 所描述的业务任务本身。
 ---
 
 # Writing Skills
@@ -16,6 +16,7 @@ description: 写 skill、改 skill、review skill、拆分或合并 skill、把�
 - 拆分、合并、重组 skill 的规则层级。
 - 检查 skill 的冗余、冲突、职责漂移或触发不清。
 - 把临时流程沉淀为正式 skill 结构。
+- 设计或修改插件脚本、工具、hook 返回给 agent 的内容（原则第 13 条），或插件更新的生效方式（第 14 条），各连同对应 gate。
 
 不用于：
 

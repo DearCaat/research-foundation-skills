@@ -33,7 +33,7 @@
 1. **Skill 元规则**——任务开始前先查有无适用 skill，适用即调用
 2. **循 skill 执行**——机械步骤与 gate 按文本走，判断类以成功条件的证据为准
 3. **讨论 / 执行分离**——grounding → brainstorming → grilling → executing-plans；事实归证据，取舍归用户
-4. **Sub-agent 调度**——按独立与并行决定外包，只回收结论与指针；执行者不限于 sub-agent，按任务选；怎么派见 /delegating
+4. **Sub-agent 调度**——按独立与并行决定外包，只回收结论与指针；执行者不限于 sub-agent，按任务选；各类执行者的取舍与怎么派见 /delegating
 5. **完成纪律**——无新鲜验证证据不声明完成
 6. **输出精简**——只产出被要求或必需的文件
 7. **写 skill 遵循 writing-skills**
@@ -50,8 +50,8 @@
 | `executing-plans` | 有一份已共识的计划要落地 | 照计划的目标、范围与取舍做完，越界才停 |
 | `red-teaming` | 仅手动 `/red-teaming` | 拷打用户点名的方案/断言，交付被击破的前提或可抽查的未击破报告 |
 | `handoff` | 仅手动 `/handoff` | 把会话压缩成交接文档给下一个 session |
-| `writing-skills` | 写 skill、改 skill、review skill | skill 写作与维护规范（12 条原则 + review gates） |
-| `delegating` | 准备委派、督办或核验 sub-agent 返回时 | 按 context 成本决定是否外包，并对产物与结论负责 |
+| `writing-skills` | 写 skill、改 skill、review skill；设计或修改插件脚本、工具、hook 返回给 agent 的内容，或插件更新的生效方式 | skill 写作与维护规范（14 条原则 + review gates） |
+| `delegating` | 为独立的子任务选执行者、派发或督办 worker、核实交出去的活的返回时 | 按任务需要选执行者，并对产物与结论负责 |
 
 ## 安装
 

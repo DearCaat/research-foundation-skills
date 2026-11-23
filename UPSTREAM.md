@@ -98,3 +98,17 @@
 未做：behavior eval。本轮仍是文本层修正；英文版是否有实际使用者未确认，故仍同步而未删。
 
 今后记录复核点一律写完整 commit。
+
+## 2026-11-23（v0.8.0 并入执行者取舍）
+
+来源：[DearCaat/agents-calling-philosophy](https://github.com/DearCaat/agents-calling-philosophy) v0.1.32（`c90cb02270c4a03936fe5b19434b8e7e7c3ae113`）的 `skills/executing-model-combinations/references/executors.md` 与 `SKILL.md`（"同 harness 优先派 native sub-agent"一节）。
+
+并入：四类执行者（脚本、判定模型、直接调用的 LLM API、harness）各自适合什么、怎么坏、交回的结果怎么核；两条路径怎么比；批量先试跑。来源里按一台机器的接口写的说法（判定模型只返回概率、原生 sub-agent 共享工作区与权限、token 价差的倍数、harness 只能串行）改成不依赖具体接口的表述；脚本一节的适用范围（规则明确的步骤一律用脚本；依赖语境的结论不由未穷尽的匹配规则裁决；检查可观测的关键前提，确认不了的保留未决）是本地新增，来源里没有；常驻页 §4 同步改写。落在 `skills/delegating/references/executors.md`（中英各一份），`delegating` 增"选执行者"一节，常驻页 §4 的指向句同步。
+
+不并入：脚本的命令行参数与默认值、本机实测数字、别名表、入口解析与晋级流程、模型卡——这些随机器和工具变，留在原仓库。
+
+并入后同一段内容在两个仓库各有一份；原仓库本轮未改。
+
+同版另加（委托人 2026-11-23 的要求，非上游来源）：`writing-skills` 的 principles 增第 13 条"返回给 agent 的输出"（只返回调用约定要求的和下一步用得上的，需回查的明细按定位可取，失败与截断照报），review_gates 增对应问句，适用范围扩到设计插件脚本、工具、hook 返回给 agent 的内容；常驻页 §6 加一句通用规则，让一次性脚本与命令同样受约束。另增第 14 条"更新怎么生效"（宿主支持且不损害一致性与可用性时优先热更新，否则冷更新并写明生效方式与已有会话受到的影响；实际加载的内容要可核对）与对应问句。
+
+发布前审查（v0.8.0）：Codex gpt-6.2-astra xhigh 对四项改动（执行者取舍、脚本使用规则、返回给 agent 的输出、更新怎么生效）各审至末轮"可发布"；Gemini App 4 Neon High 只审过执行者取舍的第一版（零意见的"可发布"，未采信），其后的改动未经其审；委托人审定文本后发布。未做 behavior eval。

@@ -55,3 +55,11 @@ Scripts may check structure, format, paths, and explicit fields and emit risk or
 ## 12. Necessary inputs and artifacts
 
 Necessity, not count, is the criterion. Locate each required input before reading it and read only the needed portion. Every artifact, including an intermediate one, must have a stated purpose and consumer; specify its path when it must persist. Extra checks, schemas, gates, contracts, and abstractions need a named research conclusion they protect; if the reason is only “more engineering,” remove them. Before deleting a rule, ask which behavior would regress; if none can be named, it is redundant.
+
+## 13. Output returned to an agent
+
+What a script, tool, or hook returns goes straight into the agent’s context: return only what the calling contract requires and what the caller needs for its next step, and output nothing else. When the full text is itself the required input, return the text. For details that may need to be looked up, prefer a source location, key, or ID the caller can use; save a separate copy only when the details must be kept and cannot be retrieved in place. When a failure or anomaly affects the result, report its nature and the scope it affects; repeated instances may be summarized. When the result is partial or was truncated, state its completeness and the range that can be looked up.
+
+## 14. How updates take effect
+
+A plugin change should preferably take effect within the current session (hot update): a long-running session that does not receive the update keeps working under the old rules and interfaces. When the host supports it and state stays consistent and the plugin stays usable, prefer a hot update; otherwise use a cold update, and state how to make the change take effect on that host, what existing sessions use until then, and which abilities are affected. When installed content and the content the current session uses may differ, state how to check the version or content actually loaded for the affected part; when that cannot be verified, say so and give a way to reload from a known version.

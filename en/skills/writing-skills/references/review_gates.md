@@ -56,3 +56,14 @@ The rules live in `principles.md`; this file contains only the questions to chec
 - Does every artifact have a purpose and consumer?
 - Were no unrequested output files added?
 - Were required verification and evidence reads retained?
+
+## Output returned to an agent
+
+- Does the returned content contain only what the calling contract requires and what the caller needs for its next step, and is it enough to support that step?
+- Can the caller retrieve details that need to be looked up through the locator given? Are partial results and truncation stated?
+- Are the nature and affected scope of failures and anomalies visible?
+
+## How updates take effect
+
+- When, and through what action, does the current session adopt the change? For a cold update, are the reason, the steps to make it take effect, and the impact on existing sessions stated?
+- When there is doubt between old and new versions, what evidence confirms what the affected part actually loaded in the current session? Where that cannot be confirmed, are the limitation and a reliable way to make the change take effect stated?

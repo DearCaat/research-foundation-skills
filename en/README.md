@@ -23,8 +23,8 @@ The process chain is **grounding (verify first) → brainstorming (diverge) → 
 | `executing-plans` | An agreed plan is ready | Carry out the plan's goal, scope, and trade-offs; stop only at the boundary |
 | `red-teaming` | Explicitly invoked by the user | Attack a named plan or claim with evidence |
 | `handoff` | Explicitly invoked by the user | Compress a session for the next session |
-| `writing-skills` | Writing or reviewing a skill | Maintain predictable, well-scoped skills |
-| `delegating` | Assigning or supervising sub-agents | Delegate for independence and parallelism; verify returned artifacts |
+| `writing-skills` | Writing or reviewing a skill; designing or changing what a plugin script, tool, or hook returns to an agent or how a plugin update takes effect | Maintain predictable, well-scoped skills |
+| `delegating` | Choosing an executor for an independent sub-task, dispatching or supervising a worker, verifying what handed-off work returns | Choose the executor by what the task needs; verify returned artifacts |
 
 ## Installation
 

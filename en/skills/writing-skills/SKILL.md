@@ -1,6 +1,6 @@
 ---
 name: writing-skills
-description: When creating, modifying, reviewing, splitting, or merging a skill, maintain its entry point, structure, rule layering, and review discipline. Do not use it to execute the business task described by a neighboring skill.
+description: When creating, modifying, reviewing, splitting, or merging a skill, or designing or changing what a plugin script, tool, or hook returns to an agent or how a plugin update takes effect, maintain its entry point, structure, rule layering, and review discipline. Do not use it to execute the business task described by a neighboring skill.
 ---
 
 # Writing skills
@@ -9,7 +9,7 @@ Maintain skill entry points, structure, boundaries, and review quality; do not e
 
 ## Use / do not use
 
-Use this skill to create or maintain top-level skills, child skills, and tool skills; maintain `SKILL.md`, references, and scripts; split, merge, or reorganize skills; check redundancy, conflicts, scope drift, and triggers; and turn a temporary process into a formal skill.
+Use this skill to create or maintain top-level skills, child skills, and tool skills; maintain `SKILL.md`, references, and scripts; split, merge, or reorganize skills; check redundancy, conflicts, scope drift, and triggers; turn a temporary process into a formal skill; and design or change what plugin scripts, tools, and hooks return to an agent (principle 13) or how a plugin update takes effect (principle 14), each with its gate.
 
 Do not use it for fact-checking or rewriting business content, executing an adjacent business skill, or organizing one-off temporary or session artifacts.
 

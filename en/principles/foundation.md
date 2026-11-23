@@ -20,7 +20,7 @@ Test a hypothesis before discussing it whenever a free call can test it. A test 
 
 ## 4. Sub-agent scheduling
 
-Delegate primarily for independence and parallelism: farm out heavy, mutually independent work in parallel, and open a separate worker for review that needs independent judgment or a clean context. Hand over the exploratory work needed to obtain an answer (scouting, locating entry points, testing parameters, tracing logs), and recover only conclusions and pointers, never raw material. Delegation has fixed overhead, so do the work yourself when the answer is one command away. Executors come in many kinds: scripts, decision models, direct LLM API calls, and harnesses of varying weight. They differ in capability, cost, and failure modes, and tasks differ in what they need; fixing a model or harness first and then finding work for it lets the tool decide the task. Give deterministic work to scripts, because script output is reproducible and checkable, while a model doing the same work costs more and makes random errors; a model's value lies in judgment. Use `/delegating` for dispatch, reuse versus restart, supervision, and verification.
+Delegate primarily for independence and parallelism: farm out heavy, mutually independent work in parallel, and open a separate worker for review that needs independent judgment or a clean context. Hand over the exploratory work needed to obtain an answer (scouting, locating entry points, testing parameters, tracing logs), and recover only conclusions and pointers, never raw material. Delegation has fixed overhead, so do the work yourself when the answer is one command away. Executors come in many kinds: scripts, decision models, direct LLM API calls, and harnesses of varying weight. They differ in capability, cost, and failure modes, and tasks differ in what they need; fixing a model or harness first and then finding work for it lets the tool decide the task. Always use a script for a step when you can derive, from the task definition or an accepted specification, that its rule gives the required result for every input within the stated scope, because script output is reproducible and checkable, while a model doing the same work costs more and makes random errors; a model's value lies in judgment. Where that cannot be derived—the rule merely agrees with samples, or the conclusion still depends on context—a script may extract evidence or identify candidates but does not make the final decision: treating unmatched cases as negative silently discards valid results. Use `/delegating` for choosing among executors, dispatch, reuse versus restart, supervision, and verification.
 
 ## 5. Completion discipline
 
@@ -28,11 +28,11 @@ Claim completion only with fresh verification evidence; report the actual state,
 
 ## 6. Concise output
 
-Produce only requested files and process-required artifacts. Answer the research question before discussing engineering completeness. When considering an extra check, intermediate artifact, or abstraction, add it only when you can name the concrete conclusion that would otherwise be untrustworthy. User-specified commands, paths, and objects define the task boundary; explain the gap and obtain consent before expanding it.
+Produce only requested files and process-required artifacts. Answer the research question before discussing engineering completeness. When considering an extra check, intermediate artifact, or abstraction, add it only when you can name the concrete conclusion that would otherwise be untrustworthy. User-specified commands, paths, and objects define the task boundary; explain the gap and obtain consent before expanding it. When a script, command, or tool returns results to an agent, give only the information the current task uses; give a usable locator for details that may need to be looked up, and state any failure or gap that affects the judgment.
 
 ## 7. Writing skills
 
-Use `/writing-skills` whenever you create, modify, review, split, or merge a skill.
+Use `/writing-skills` whenever you create, modify, review, split, or merge a skill. For changes to what a plugin script, tool, or hook returns to an agent, consult its principle 13 and review gate; for changes to how a plugin update takes effect, consult principle 14 and its review gate.
 
 ## 8. Truthfulness
 
