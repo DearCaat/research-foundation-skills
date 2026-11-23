@@ -1,12 +1,12 @@
 # research-foundation (English)
 
-An English-only agent foundation plugin for research work: one permanent principles page plus ten philosophy-level process skills. The Chinese variant remains the default plugin in the repository root; installing this variant gives an English-only installation.
+An English-only agent foundation plugin for research work: one permanent principles page plus nine philosophy-level process skills. The Chinese variant remains the default plugin in the repository root; installing this variant gives an English-only installation.
 
 ## Philosophy
 
 As models become more capable, elaborate engineering workflows can become a burden. This plugin constrains agent behavior with lightweight principles and demanding completion criteria rather than step-by-step SOPs.
 
-The process chain is **grounding (verify first) → brainstorming (diverge) → grilling (converge and obtain a decision) → executing-plans (implement faithfully)**. Discussion and execution remain separate; execution starts only after the plan is agreed.
+The process chain is **grounding (verify first) → brainstorming (diverge) → grilling (converge and obtain a decision) → executing-plans (implement faithfully)**. Stages are entered as needed. Actions that depend on an open decision wait; independent, authorized work continues.
 
 ## Permanent principles
 
@@ -18,14 +18,13 @@ The process chain is **grounding (verify first) → brainstorming (diverge) → 
 |---|---|---|
 | `grounding` | Unclear context or advice is needed | Verify primary evidence before forming an opinion |
 | `debugging` | Bug, error, failed test, regression, or anomaly | Find the root cause through a tight feedback loop |
-| `brainstorming` | Before starting new research or analysis | Expand the option space before judging |
+| `brainstorming` | When choosing among viable paths would change the research design | Expand the option space before judging |
 | `grilling` | A discussion requires an aligned decision | Ask one question at a time until the user decides |
-| `executing-plans` | An agreed plan is ready | Implement exactly the agreed plan and verify it |
+| `executing-plans` | An agreed plan is ready | Carry out the plan's goal, scope, and trade-offs; stop only at the boundary |
 | `red-teaming` | Explicitly invoked by the user | Attack a named plan or claim with evidence |
 | `handoff` | Explicitly invoked by the user | Compress a session for the next session |
 | `writing-skills` | Writing or reviewing a skill | Maintain predictable, well-scoped skills |
 | `delegating` | Assigning or supervising sub-agents | Delegate for independence and parallelism; verify returned artifacts |
-| `truth-seeking` | Direction changes or a decision is requested | Keep changes in position driven by evidence |
 
 ## Installation
 
@@ -65,7 +64,7 @@ curl -fsSL \
 grok inspect
 ```
 
-Grok loads this plugin's ten skills, but a verified Grok Build 1.0.13 run did not register the plugin hooks; moreover, Grok discards `SessionStart` stdout rather than injecting it as model context. The global rule above is therefore required. It includes a conditional increment for child agents, and actual child sessions inherit the rule.
+Grok loads this plugin's nine skills, but a verified Grok Build 1.0.13 run did not register the plugin hooks; moreover, Grok discards `SessionStart` stdout rather than injecting it as model context. The global rule above is therefore required. It includes a conditional increment for child agents, and actual child sessions inherit the rule.
 
 ## Updating
 

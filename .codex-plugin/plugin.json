@@ -1,7 +1,7 @@
 {
   "name": "research-foundation",
-  "version": "0.6.1",
-  "description": "Research foundation plugin: philosophy-level process skills including evidence-led truth-seeking, plus a one-page standing principles doc.",
+  "version": "0.7.0",
+  "description": "Research foundation plugin: philosophy-level process skills, plus a one-page standing principles doc.",
   "author": {
     "name": "dearcat"
   },
@@ -16,15 +16,14 @@
     "grounding",
     "executing-plans",
     "writing-skills",
-    "delegating",
-    "truth-seeking"
+    "delegating"
   ],
   "skills": "./skills/",
   "hooks": "./hooks/hooks.json",
   "interface": {
     "displayName": "Research Foundation",
     "shortDescription": "Philosophy-level process skills for research work",
-    "longDescription": "Grounding before opinions, evidence-led truth-seeking when direction changes, root-cause debugging via tight feedback loops, brainstorming before grilling, strict plan execution, context-aware delegation, session handoff, and skill-authoring discipline — principles, not engineering SOPs.",
+    "longDescription": "Grounding before opinions, root-cause debugging via tight feedback loops, brainstorming before grilling, strict plan execution, context-aware delegation, session handoff, and skill-authoring discipline — principles, not engineering SOPs.",
     "developerName": "dearcat",
     "category": "Productivity",
     "capabilities": [

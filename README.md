@@ -1,6 +1,6 @@
 # research-foundation
 
-科研工作的 agent 基建插件：**一页常驻原则 + 十个哲学级过程 skill**。不做绑定具体业务的 skill，不搬工程 SOP。
+科研工作的 agent 基建插件：**一页常驻原则 + 九个哲学级过程 skill**。不做绑定具体业务的 skill，不搬工程 SOP。
 
 ## 语言版本与入口
 
@@ -20,9 +20,9 @@
 本插件吸纳两个上游仓库的哲学（只取哲学，不搬其工程流程）：
 
 - [mattpocock/skills](https://github.com/mattpocock/skills)：grilling（一次一问、决策归用户）、primary-source research、handoff、diagnosing-bugs 的 tight 反馈回路、prototype 的 throwaway 试算、writing-great-skills 的可预测性理论（invocation 二分、leading words、完成判据、negation 反噬、progressive disclosure）。
-- [obra/superpowers](https://github.com/obra/superpowers)：using-superpowers 元规则（适用即必须调用）、循 skill 执行（follow exactly、checklist→todo、每次重读当前版本）、brainstorming 硬门槛、systematic-debugging 根因律、executing-plans 遇阻即停、dispatching-parallel-agents 并行纪律、verification-before-completion（无证据不声明完成）。
+- [obra/superpowers](https://github.com/obra/superpowers)：using-superpowers 元规则（适用即必须调用）、循 skill 执行（follow exactly、checklist→todo、以当前文本为准）、brainstorming 先发散后收敛、systematic-debugging 根因律、executing-plans 越界即停、dispatching-parallel-agents 并行纪律、verification-before-completion（无证据不声明完成）。
 
-核心链路：**grounding（先查证）→ brainstorming（发散）→ grilling（收敛拍板）→ executing-plans（严格落地）**。讨论与执行分离；计划未共识不动手，执行中越界即停。
+核心链路：**grounding（先查证）→ brainstorming（发散）→ grilling（收敛拍板）→ executing-plans（严格落地）**。各环节按需进入；依赖未决取舍的动作等决定，独立且已授权的工作继续。
 
 吸纳时的上游版本快照见 [UPSTREAM.md](UPSTREAM.md)，供日后对照上游更新做增量吸纳。
 
@@ -37,7 +37,7 @@
 5. **完成纪律**——无新鲜验证证据不声明完成
 6. **输出精简**——只产出被要求或必需的文件
 7. **写 skill 遵循 writing-skills**
-8. **实事求是**——反驳落在证据上；改口须说清新证据或原推理错在哪，方向变化与决策时转 /truth-seeking 校准
+8. **实事求是**——反驳落在证据上；改口须说清新证据或原推理错在哪；偏好与权责改变做法，不改变事实结论
 
 ## Skills
 
@@ -45,14 +45,13 @@
 |---|---|---|
 | `grounding` | 状态触发：需求不清、背景不明、要给建议时自动启动 | evidence before opinion，先查 primary sources 再开口 |
 | `debugging` | 状态触发：bug、报错、测试失败、性能退化、意外实验结果或异常数据 | 先建 tight 反馈回路，以证据查明根因再修复 |
-| `brainstorming` | 开新课题 / 新分析 / 新章节 / 新想法之前 | 先把选项面撑大，再评判 |
+| `brainstorming` | 有多条可行路径，且选择会改变研究设计时 | 先把选项面撑大，再评判 |
 | `grilling` | 任何需要与用户对齐决策的讨论 | 一次一问，取舍逐个交用户拍板 |
-| `executing-plans` | 有一份已共识的计划要落地 | 只做计划写明的事，遇阻即停、问而不猜 |
+| `executing-plans` | 有一份已共识的计划要落地 | 照计划的目标、范围与取舍做完，越界才停 |
 | `red-teaming` | 仅手动 `/red-teaming` | 拷打用户点名的方案/断言，交付被击破的前提或可抽查的未击破报告 |
 | `handoff` | 仅手动 `/handoff` | 把会话压缩成交接文档给下一个 session |
 | `writing-skills` | 写 skill、改 skill、review skill | skill 写作与维护规范（12 条原则 + review gates） |
 | `delegating` | 准备委派、督办或核验 sub-agent 返回时 | 按 context 成本决定是否外包，并对产物与结论负责 |
-| `truth-seeking` | 用户改变方向、要求决策，或 agent 准备随之改口时 | 区分证据、纠错、偏好与权责，阻止迎合性立场漂移 |
 
 ## 安装
 
@@ -108,7 +107,7 @@ curl -fsSL \
 grok inspect
 ```
 
-不带 `-en` 的 `research-foundation` 是默认中文变体。Grok 会加载本插件的十个 skills，但经 Grok Build 1.0.13 实测不会把插件 hook 注册为可执行 hook；即使未来注册，`SessionStart` 的 stdout 也不会注入模型上下文。因此必须安装上面的 global rule。该 rule 包含“仅对子代理生效”的增量，实际 child session 会继承它。
+不带 `-en` 的 `research-foundation` 是默认中文变体。Grok 会加载本插件的九个 skills，但经 Grok Build 1.0.13 实测不会把插件 hook 注册为可执行 hook；即使未来注册，`SessionStart` 的 stdout 也不会注入模型上下文。因此必须安装上面的 global rule。该 rule 包含“仅对子代理生效”的增量，实际 child session 会继承它。
 
 英文-only 版本使用：
 

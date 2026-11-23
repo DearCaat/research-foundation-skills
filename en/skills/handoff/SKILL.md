@@ -13,8 +13,7 @@ Compress the current session so the next agent can continue without replaying th
 - Record the goal, settled conclusions, current progress, and next action.
 - Link existing artifacts—plans, notes, commits, and files—rather than copying their contents.
 - Remove secrets and personal information.
-- Include a “Suggested skills” section naming the skills the next session should use first.
-- Store the document in the system temporary directory, not in the project.
+- Store the document where the receiving session can read it (for a cross-machine handoff, a location both sides can read), not in the project; on delivery, give an absolute path the receiver can use directly.
 
 ## Trimming
 

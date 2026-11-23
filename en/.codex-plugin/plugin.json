@@ -1,6 +1,6 @@
 {
   "name": "research-foundation-en",
-  "version": "0.5.6",
+  "version": "0.7.0",
   "description": "Research foundation plugin: philosophy-level process skills in English.",
   "author": {
     "name": "dearcat"
@@ -17,7 +17,6 @@
     "executing-plans",
     "writing-skills",
     "delegating",
-    "truth-seeking",
     "principles"
   ],
   "skills": "./skills/",
@@ -25,7 +24,7 @@
   "interface": {
     "displayName": "Research Foundation (English)",
     "shortDescription": "English research process skills and evidence-led agent principles",
-    "longDescription": "Grounding before opinions, evidence-led truth-seeking when direction changes, root-cause debugging, brainstorming before grilling, strict plan execution, context-aware delegation, session handoff, and skill-authoring discipline.",
+    "longDescription": "Grounding before opinions, root-cause debugging, brainstorming before grilling, strict plan execution, context-aware delegation, session handoff, and skill-authoring discipline.",
     "developerName": "dearcat",
     "category": "Productivity",
     "capabilities": [

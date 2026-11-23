@@ -28,6 +28,7 @@ The rules live in `principles.md`; this file contains only the questions to chec
 - Does the description avoid triggering neighboring skills?
 - Are read/write and user-confirmation rules consistent with the existing workflow?
 - Are any existing rules contradictory?
+- When a standing principle or a rule referenced elsewhere changed, were all skills and mirrors that reference or restate it updated?
 
 ## Naming
 

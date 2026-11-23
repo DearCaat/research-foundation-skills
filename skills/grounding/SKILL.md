@@ -12,8 +12,8 @@ description: evidence before opinion：当用户需求还不清晰、背景不�
 - 用户的 load-bearing 断言与前提同样入查证范围，逐条判定证实/证伪/未检验；与用户断言冲突的发现显式标出、当场陈述。
 - 查证前先盘点：会话内已有证据与已读材料足以支撑的，直接复用并标注来源；只对缺口做新查证。
 - 对缺口主动探索环境，直取 primary sources：论文原文（DOI / arXiv）、官方文档、作者本人博客，不用二手转述。
-- 带引用汇报发现并给出建议，随后开启讨论（转 /brainstorming 或 /grilling）。
-- 每条 claim 标来源，并区分 peer-reviewed / preprint / 博客的证据强度。
+- 带引用汇报发现并给出建议；仍有会改变研究设计的备选路径时转 /brainstorming，仍有待用户决定的取舍时转 /grilling。
+- 每条 claim 标来源：文献区分 peer-reviewed / preprint / 博客的证据强度；机器与环境事实标明是哪台机器、何时观察到的。
 - 检索类 legwork 按 foundation 的调度哲学交后台 sub-agent。
 
 ## 完成判据

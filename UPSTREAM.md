@@ -13,7 +13,7 @@
 
 | 上游 | commit（main） | 上游版本 | 本次新增被吸纳文件 |
 |---|---|---|---|
-| [mattpocock/skills](https://github.com/mattpocock/skills) | `66898f60e8c744e269f8ce06c2b2b99ce7660d5f`（2026-07-13） | plugin 1.2.0 | `skills/engineering/diagnosing-bugs`、`skills/productivity/prototype` |
+| [mattpocock/skills](https://github.com/mattpocock/skills) | `66898f60e8c744e269f8ce06c2b2b99ce7660d5f`（2026-07-13） | plugin 1.2.0 | `skills/engineering/diagnosing-bugs`、`skills/engineering/prototype`（v0.7.0 更正：此前误记为 `skills/productivity/prototype`，该路径在上游历史中不存在） |
 | [obra/superpowers](https://github.com/obra/superpowers) | `d884ae04edebef577e82ff7c4e143debd0bbec99`（2026-07-02） | plugin 6.1.1（本机安装副本同版） | `skills/systematic-debugging`、`skills/dispatching-parallel-agents` |
 
 ## 2026-07-14（v0.2.1 第三次定向吸纳）
@@ -72,3 +72,29 @@
 不改（用户裁定）：SubagentStart 继续注入整页 foundation——哲学也要给执行者看，越弱越需要。异议留痕：§3 停顿规则进执行型 sub-agent 会让它返回而非继续；§3 改后此成本已下降。弱模型需要的确定性放派发 prompt（delegating「给执行器求确定」）与 harness 适配文件，不分两套哲学。
 
 未做：behavior eval。本轮全部是文本层比对，未实测；厂商来源亦为"内部测试"级，Astra 博文无数字。
+
+## 2026-11-23（v0.7.0 自洽性修正与增量吸纳）
+
+起因：三方独立审查（Claude Fable 5.2、Codex gpt-6.2-astra xhigh、Gemini App 4 Neon High，两轮对质）发现 v0.6.0 改了常驻页 §3 的停顿规则，却漏改复述旧规则的 skill；另有一个 skill 与常驻页重复。
+
+| 上游 | 复核到的 commit | 上游版本 | 本次吸纳 |
+|---|---|---|---|
+| [obra/superpowers](https://github.com/obra/superpowers) | `22f0b463e7a5e579904dd6211a520321035526f7`（2026-11-03，自 `v6.3.0` 起 6 个 commit） | plugin 7.0.2 | `skills/executing-plans`（v6.4.1 重写："Do not pause to check in… Four things stop you, and only these"）→ 本地 executing-plans 改为"越界才停"；`skills/brainstorming`（v7.0.0 删除 "Too Simple" 反模式；v7.0.2 "Ask a question only when the answer would change what gets built and neither the request nor the project answers it"）→ 本地 brainstorming 删同名反模式、grilling 收紧上抛门槛 |
+| [mattpocock/skills](https://github.com/mattpocock/skills) | `abeeaf95660ba9e8b7c753eb38f441ca707a8823`（2026-11-19；8 月复核点重建为 `6654f6b60cd9d5be8b54c6fafe44346dabeb3b76`） | plugin 1.3.2 | `skills/engineering/diagnosing-bugs`（#1209：人为构造失败时先用 diff 确认改动落地）→ 本地 debugging Gate。`skills/productivity/writing-great-skills` 已在上游改名为 `skills/productivity/writing-for-agents`（2026-07-23），此前记录保留原名 |
+
+落点（中文、Grok 适配、英文、英文 Grok 四份同步）：
+- 常驻页 §1 删"开工时宣告"；§2"每次重读"改为"本会话首次调用时先读、得知文本更新时重读"；§3 流程首段改为各环节按需进入、未决取舍只阻塞依赖它的动作，删"取得同意就动手"与"任何时候不得往轻里改"（往轻里改须有新证据）；§4 删与 delegating 重复的续用句；§8 并入 truth-seeking 的判据。
+- 删 `truth-seeking` skill：其规则本体已在 §8 常驻，触发条件近乎恒真，按 writing-skills principles 第 2 条应归常驻页。
+- `executing-plans`、`grilling` 的 Gate 与 §3 对齐：未决的取舍只阻塞依赖它的动作。
+- `brainstorming` 收窄触发并删"太简单不需要发散"；`debugging` 删无分母的"90%"、区分查证性试验与修复；`grounding` 的来源标注扩到机器与环境事实；`delegating` 删与 §4 重复的"该不该派"、区分继承与不继承上下文的 worker；`handoff` 改存放位置、删"建议 skill"一节。
+- `review_gates.md` 增一问：改常驻原则时是否同步了复述它的 skill 与镜像（针对 v0.6.0 的漏改）。
+
+不吸纳：superpowers 的 task-start / task-done 脚本、sdd 脚本与 references（软件工程 SOP）；mattpocock 的"yes 即接受推荐"（#1193）与子代理一律 fresh context（#1341，本地按是否需要独立判断区分）。
+
+不改（用户此前裁定继续生效）：SubagentStart 注入整页 foundation。三方均认为值得做一次对照实测后再议，本轮未测。
+
+发布前审查：改动由 Claude Fable 5.2 起草；Codex gpt-6.2-astra xhigh 审三轮、Gemini App 4 Neon High 审两轮，前几轮均为"须改后发布"，所列阻塞项改完后两方末轮结论均为"可发布"。
+
+未做：behavior eval。本轮仍是文本层修正；英文版是否有实际使用者未确认，故仍同步而未删。
+
+今后记录复核点一律写完整 commit。

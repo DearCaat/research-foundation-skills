@@ -12,7 +12,7 @@ Establish an evidence base before speaking: evidence before opinion.
 - Do not reason from assumptions. Treat every load-bearing user claim and premise as something to check; label it confirmed, refuted, or untested, and state conflicts explicitly.
 - Reuse evidence already read in this conversation and identify its source. Search only for gaps.
 - Explore the environment and go directly to primary sources: original papers (DOI / arXiv), official documentation, or the author’s own writing. Do not rely on second-hand summaries.
-- Cite each claim, distinguish peer-reviewed, preprint, and blog evidence, then give an evidence-backed recommendation and move to `/brainstorming` or `/grilling`.
+- Cite each claim: for literature, distinguish peer-reviewed, preprint, and blog evidence; for machine and environment facts, state which machine and when it was observed. Then give an evidence-backed recommendation; move to `/brainstorming` when alternative routes that would change the research design remain, and to `/grilling` when a trade-off awaits the user’s decision.
 
 ## Completion criterion
 
