@@ -1,0 +1,19 @@
+# 放进插件仓库 .github/workflows/。每次推送或 PR 更新，通知验收仓库去验（总览线维护，内容不要改；改了也绕不过闸：通过状态只由验收方写）。
+name: plugin-audit-trigger
+on:
+  push:
+  delete:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 通知独立验收
+        env:
+          T: ${{ secrets.PLUGIN_AUDIT_DISPATCH }}
+          REPO: ${{ github.repository }}
+        run: |
+          curl -fsS -X POST -H "Authorization: Bearer $T" -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/DearCaat/pathtrove-plugin-audit/dispatches \
+            -d "{\"event_type\":\"plugin-push\",\"client_payload\":{\"repo\":\"$REPO\"}}"
